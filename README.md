@@ -1,12 +1,16 @@
 # Ascold
 
-Convert pictures to ASCII art.
+Convert pictures to ASCII art. Not a serious project.
 
 ### Usage
 
 ```shell
 ./Ascold <path-to-picture>
 ```
+
+### Bugs (TODO)
+
+* Wrong brightness for transparent backgrounds.
 
 ### Demo
 
