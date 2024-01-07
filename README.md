@@ -1,6 +1,6 @@
 # Ascold
 
-Convert pictures to ASCII art. Not a serious project.
+Convert pictures to ASCII art. A very crude alpha version.
 
 ### Usage
 
