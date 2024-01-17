@@ -5,8 +5,26 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <PublishAot>true</PublishAot>
+        <SelfContained>true</SelfContained>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+        <PublishSingleFile>true</PublishSingleFile>
+        <PublishReadyToRun>true</PublishReadyToRun>
     </PropertyGroup>
+
+    <PropertyGroup>
+        <InitialTargetName>Ascold</InitialTargetName>
+        <OutputFileName>ascold</OutputFileName>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
+        <InitialTargetName>Ascold.exe</InitialTargetName>
+        <OutputFileName>ascold.exe</OutputFileName>
+    </PropertyGroup>
+
+    <Target Name="RenameExecutableAfterPublish" AfterTargets="Publish">
+        <Copy SourceFiles="$(PublishDir)$(InitialTargetName)" DestinationFiles="$(PublishDir)$(OutputFileName)" />
+        <Delete Files="$(PublishDir)$(InitialTargetName)" />
+    </Target>
 
     <ItemGroup>
       <PackageReference Include="SkiaSharp" Version="2.88.6" />
